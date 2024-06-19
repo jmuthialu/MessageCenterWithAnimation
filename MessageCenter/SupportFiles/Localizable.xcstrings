@@ -55,12 +55,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Message Center"
+            "value" : "Message Center (Anim)"
           }
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Centro de mensajes"
           }
         }
