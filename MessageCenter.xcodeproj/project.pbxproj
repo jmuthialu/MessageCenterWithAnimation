@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B84CB6C82C23A5AB00161217 /* ScaleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CB6C72C23A5AB00161217 /* ScaleModifier.swift */; };
+		B84CB6CA2C23A6C000161217 /* HomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CB6C92C23A6C000161217 /* HomeContainerView.swift */; };
 		B88D20A12C2227ED0021B92F /* MessagesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D20A02C2227ED0021B92F /* MessagesAPI.swift */; };
 		B88D20A32C222FAD0021B92F /* EmailValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D20A22C222FAD0021B92F /* EmailValidationTests.swift */; };
 		B88D20A52C2232150021B92F /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D20A42C2232150021B92F /* BaseAPI.swift */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B84CB6C72C23A5AB00161217 /* ScaleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleModifier.swift; sourceTree = "<group>"; };
+		B84CB6C92C23A6C000161217 /* HomeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContainerView.swift; sourceTree = "<group>"; };
 		B88D209F2C2221440021B92F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B88D20A02C2227ED0021B92F /* MessagesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesAPI.swift; sourceTree = "<group>"; };
 		B88D20A22C222FAD0021B92F /* EmailValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationTests.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				B8900A492C23295300811BCB /* TryAgainView.swift */,
 				B8A2A95F2C224856004E2F85 /* FontPalette.swift */,
 				B8A2A9A22C2278B9004E2F85 /* ColorPalette.swift */,
+				B84CB6C72C23A5AB00161217 /* ScaleModifier.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 		B8F2A1FB2C21FDAD00897E28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B84CB6C92C23A6C000161217 /* HomeContainerView.swift */,
 				B8F2A1B22C21F4D300897E28 /* HomeView.swift */,
 			);
 			path = Home;
@@ -517,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8A2A9A32C2278B9004E2F85 /* ColorPalette.swift in Sources */,
+				B84CB6CA2C23A6C000161217 /* HomeContainerView.swift in Sources */,
 				B8F2A1B32C21F4D300897E28 /* HomeView.swift in Sources */,
 				B8A2A99B2C226466004E2F85 /* Color+Extension.swift in Sources */,
 				B8F2A1EE2C21FC6600897E28 /* Logger.swift in Sources */,
@@ -538,6 +545,7 @@
 				B8A2A99F2C226BC3004E2F85 /* UnderLinedTextField.swift in Sources */,
 				B8A2A9A52C2282DE004E2F85 /* MessagesView.swift in Sources */,
 				B8900A4A2C23295300811BCB /* TryAgainView.swift in Sources */,
+				B84CB6C82C23A5AB00161217 /* ScaleModifier.swift in Sources */,
 				B8A2A9AB2C229289004E2F85 /* MessagesContainerView.swift in Sources */,
 				B8A2A9602C224856004E2F85 /* FontPalette.swift in Sources */,
 				B8F2A1F32C21FC6600897E28 /* HTTPService.swift in Sources */,

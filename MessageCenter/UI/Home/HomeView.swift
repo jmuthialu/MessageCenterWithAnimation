@@ -10,55 +10,51 @@ import SwiftUI
 struct HomeView: View {
 
     @FocusState var emailTextFieldFocusState: Bool
-    
-    @AppStorage("userEmailId") var emailIdString: String = ""
     @State var showEmailAlert = false
-    @State private var path = NavigationPath()
+    @Binding var showHomeView: Bool
+    @Binding var emailIdString: String
     
     var body: some View {
-        NavigationStack(path: $path) {
-            VStack {
-                Spacer()
-                    .frame(height: 50)
-                
-                Image("roomsToGo")
-                    .padding()
-                
-                Text("messageCenter")
-                    .font(FontPalette.largeRegular.font)
-                    .padding(.bottom, 30)
-                
-                Text("enterYourEmailToSearch")
-                    .font(FontPalette.mediumRegular.font)
-                    .padding(.bottom, 20)
-                
-                UnderLinedTextField(emailIdString: $emailIdString)
-                    .focused($emailTextFieldFocusState)
-                    .padding(.horizontal, 30)
-                    .padding(.bottom, 35)
-                
-                ThemedButton(buttonText: "GetMessages") {
-                    let trimmedEmailString = emailIdString.trimmingCharacters(in: .whitespacesAndNewlines)
-                    emailIdString = trimmedEmailString
-                    if emailIdString.isValidEmailId() {
-                        path.append(emailIdString)
-                    } else {
-                        showEmailAlert = true
+        
+        VStack {
+            Spacer()
+                .frame(height: 50)
+            
+            Image("roomsToGo")
+                .padding()
+            
+            Text("messageCenter")
+                .font(FontPalette.largeRegular.font)
+                .padding(.bottom, 30)
+            
+            Text("enterYourEmailToSearch")
+                .font(FontPalette.mediumRegular.font)
+                .padding(.bottom, 20)
+            
+            UnderLinedTextField(emailIdString: $emailIdString)
+                .focused($emailTextFieldFocusState)
+                .padding(.horizontal, 30)
+                .padding(.bottom, 35)
+            
+            ThemedButton(buttonText: "GetMessages") {
+                let trimmedEmailString = emailIdString.trimmingCharacters(in: .whitespacesAndNewlines)
+                emailIdString = trimmedEmailString
+                if emailIdString.isValidEmailId() {
+                    withAnimation(.easeInOut(duration: 0.75)) {
+                        showHomeView = false
                     }
+                } else {
+                    showEmailAlert = true
                 }
-                .alert(isPresented: $showEmailAlert) {
-                    Alert(
-                        title: Text("Error"),
-                        message: Text("PleaseEnterValidEmail")
-                    )
-                }
-                
-                Spacer()
             }
-            .navigationDestination(for: String.self) { emailString in
-                MessagesContainerView(emailString: emailString)
-                    .toolbarRole(.editor)
+            .alert(isPresented: $showEmailAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text("PleaseEnterValidEmail")
+                )
             }
+            
+            Spacer()
         }
         .onTapGesture {
             emailTextFieldFocusState = false
@@ -67,5 +63,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    @State var showHomeView = true
+    @State var emailIdString = "mtaylor@gmail.com"
+    
+    return HomeView(showHomeView: $showHomeView, emailIdString: $emailIdString)
 }

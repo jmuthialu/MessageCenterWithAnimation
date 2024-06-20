@@ -12,10 +12,31 @@ struct MessagesContainerView: View {
     @ObservedObject var viewModel = MessagesViewModel(
         messagesAPI: MessagesAPI(forType: .http)
     )
+    @Binding var showHomeView: Bool
     let emailString: String
     
     var body: some View {
         VStack(alignment: .leading) {
+            
+            HStack(alignment: .center) {
+                Spacer()
+                Button {
+                    withAnimation(.easeInOut(duration: 0.50)) {
+                        showHomeView = true
+                    }
+                }  label: {
+                    Image(systemName: "xmark.circle")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .tint(Color.gray)
+                }
+                .padding(.trailing, 25)
+            }
+            .padding(.top, 30)
+            
+            Spacer()
+                .frame(height: 20)
+            
             MessageCenterHeader()
 
             Spacer()
@@ -48,6 +69,10 @@ struct MessagesContainerView: View {
 }
 
 #Preview {
-    let viewModel = MessagesViewModel(messagesAPI: MessagesAPI(forType: .http))
-    MessagesContainerView(viewModel: viewModel, emailString: "mtaylor@gmail.com")
+    let viewModel = MessagesViewModel(messagesAPI: MessagesAPI(forType: .mock))
+    
+    @State var showHomeView = false
+    return MessagesContainerView(viewModel: viewModel,
+                          showHomeView: $showHomeView,
+                          emailString: "mtaylor@gmail.com")
 }
