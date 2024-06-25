@@ -36,5 +36,5 @@ struct MessagesView: View {
                 date: Date(),
                 message: "Hello, Test2!")
     ]
-    MessagesView(messages: messages)
+    return MessagesView(messages: messages)
 }

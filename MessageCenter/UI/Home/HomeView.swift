@@ -40,7 +40,7 @@ struct HomeView: View {
                 let trimmedEmailString = emailIdString.trimmingCharacters(in: .whitespacesAndNewlines)
                 emailIdString = trimmedEmailString
                 if emailIdString.isValidEmailId() {
-                    withAnimation(.easeInOut(duration: 0.75)) {
+                    withAnimation(.easeInOut(duration: 0.5)) {
                         showHomeView = false
                     }
                 } else {

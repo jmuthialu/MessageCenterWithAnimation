@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MessagesContainerView: View {
     
-    @ObservedObject var viewModel = MessagesViewModel(
+    @StateObject var viewModel = MessagesViewModel(
         messagesAPI: MessagesAPI(forType: .http)
     )
     @Binding var showHomeView: Bool
